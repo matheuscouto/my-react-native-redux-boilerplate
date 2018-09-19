@@ -9,19 +9,27 @@ import appStateReducer, {
 	IState as IAppStateState,
 } from './app/state';
 
+import userAuthReducer, {
+	epics as userAuthEpics,
+	IState as IUserAuthState,
+} from './user/auth';
+
 // STORE INTERFACE
 export interface IRootState {
 	appState: IAppStateState,
+	userAuth: IUserAuthState,
 }
 
 // COMBINED REDUCERS
 const rootReducer = combineReducers<IRootState>({
 	appState: appStateReducer,
+	userAuth: userAuthReducer
 });
 
 // COMBINED EPICS
 const rootEpic = combineEpics(
 	appStateEpics,
+	userAuthEpics
 );
 
 
