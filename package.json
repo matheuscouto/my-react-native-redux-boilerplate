@@ -4,15 +4,23 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+		"test": "jest",
+		"dev-tools": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'"
   },
   "dependencies": {
     "react": "16.5.0",
-    "react-native": "0.57.0"
+    "react-native": "0.57.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-observable": "^1.0.0",
+    "rxjs": "^6.3.2",
+    "typescript-fsa": "^3.0.0-beta-2",
+    "typescript-fsa-reducers": "^0.4.5"
   },
   "devDependencies": {
     "@types/react": "^16.4.14",
     "@types/react-native": "^0.56.22",
+    "@types/react-redux": "^6.0.9",
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.45.3",
