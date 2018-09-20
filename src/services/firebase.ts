@@ -1,27 +1,12 @@
-import * as firebase from 'firebase';
+import firebase from 'react-native-firebase';
 import { Observable } from 'rxjs';
-
-const config = {
-	apiKey: "AIzaSyCe9XJ---EXAMPLE---SQFBe20s",
-	authDomain: "PROJECT-NAME.firebaseapp.com",
-	databaseURL: "https://PROJECT-NAME.firebaseio.com",
-	projectId: "PROJECT-NAME",
-	storageBucket: "PROJECT-NAME.appspot.com",
-	messagingSenderId: "XXXXXXXXXXXX"
-};
-
-firebase.initializeApp(config);
-
-export default firebase;
 
 // OBSERVABLE EXAMPLE
 export const authStateObservable: Observable<{ uid: string } | null> = new Observable((observer) => {
 	return firebase.auth().onAuthStateChanged(
-		(user) => {
+		(user: {uid: string } | null) => {
 			observer.next(user ? { uid: user.uid } : null);
 		},
-		observer.error,
-		observer.complete,
 	);
 });
 
